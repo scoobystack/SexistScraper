@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+</head>
+
+<body>
+
+<h1>Welcome to the scraper.</h1>
+<p>Click the button below to get started.</p>
+
+<form action="/getjobs" method="post">{% csrf_token %}
+    Site: <input type="text" name="site" placeholder="Indeed"><br/>
+    Query: <input type="text" name="query" placeholder="Software Developer"><br/>
+    Location: <input type="text" name="location" placeholder="Minneapolis, MN"><br/>
+    Result Count: <input type="text" name="results" placeholder="500"><br/>
+    <button type="submit">Go get them jobs!</button>
+</form>
+
+</body>
+</html>
