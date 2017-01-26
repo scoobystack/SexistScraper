@@ -6,18 +6,21 @@
 </head>
 <body>
 
-<h1>Jobs!</h1>
-<p>See list below:</p>
-
-{% if latest_job_list %}
-    <ul>
-    {% for job in latest_job_list %}
-        <li><a href="/jobs/{{ job.id }}/">{{ job.company }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No jobs are available.</p>
-{% endif %}
-
+<div class="container">
+    {% if is_jp_valid %}
+        <h1>Jobs!</h1>
+        {% if latest_job_list %}
+            <ul>
+            {% for job in latest_job_list %}
+                <li><a href="{{ job.url }}/">{{ job.company }}: {{ job.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No jobs are available.</p>
+        {% endif %}
+    {% else %}
+        <h1>Bad Job Provider Data - Try Again mutha!</h1>
+    {% endif %}
+</div>
 </body>
 </html>

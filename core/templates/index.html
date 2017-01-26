@@ -2,21 +2,45 @@
 <html>
 <head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
 
 <body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome to the scraper.</h1>
+        <p>Highlighting the prevalence of sexism for job seekers since... hopefully, tomorrow.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
 
-<h1>Welcome to the scraper.</h1>
-<p>Click the button below to get started.</p>
+    <form action="/getjobs" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="site">Site: Indeed</label>
+            <!--<input type="text" class="form-control" name="site" value="https://www.indeed.com">-->
+        </div>
 
-<form action="/getjobs" method="post">{% csrf_token %}
-    Site: <input type="text" name="site" placeholder="Indeed"><br/>
-    Query: <input type="text" name="query" placeholder="Software Developer"><br/>
-    Location: <input type="text" name="location" placeholder="Minneapolis, MN"><br/>
-    Result Count: <input type="text" name="results" placeholder="500"><br/>
-    <button type="submit">Go get them jobs!</button>
-</form>
+        <div class="form-group">
+            <label for="query">Query</label>
+            <input type="text" class="form-control" name="query" value="Software+Engineer">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" name="location" value="Minneapolis, MN">
+        </div>
+
+        <div class="form-group">
+            <label for="count">Result Count</label>
+            <select type="text" class="custom-select" name="count">
+                <option selected value="25">25</option>
+                <option value="100">100</option>
+                <option value="500">500</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default" value="submit">Get them jobs!</button>
+    </form>
+</div>
 
 </body>
 </html>
