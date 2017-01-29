@@ -10,7 +10,7 @@ class Job(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     date_scraped = models.DateTimeField(default=datetime.now)
     date_posted = models.DateTimeField()
-    keywords = models.CharField(max_length=200)
+    query = models.CharField(max_length=200)
     company = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
@@ -21,4 +21,4 @@ class Job(models.Model):
 
     def __str__(self):
         return 'company: ' + self.company + ', title: ' + self.title + ', posted: ' + \
-        self.date_posted.strftime("%B %d, %Y")
+        self.date_posted.strftime("%B %d, %Y") + ', query: ' + query

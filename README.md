@@ -8,7 +8,7 @@
 psql    #open psql prompt
 create user scraper with password 'scraper'; 
 create database scraper owner scraper;
-\q      #quit psql
+\q      #quit psql 
 ```
 
 ### Activate virtualenv and install deps
