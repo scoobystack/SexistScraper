@@ -10,11 +10,28 @@
     {% if is_jp_valid %}
         <h1>Jobs!</h1>
         {% if latest_job_list %}
-            <ul>
-            {% for job in latest_job_list %}
-                <li><a href="{{ job.url }}/">{{ job.company }}: {{ job.title }}</a></li>
-            {% endfor %}
-            </ul>
+            <table class="table table-hover table-condensed">
+                <thead class="bold">
+                    <tr>
+                        <th>ss*</th>
+                        <th>company</th>
+                        <th>position</th>
+                        <th>location</hd>
+                        <th>description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job in latest_job_list %}
+                        <tr>
+                            <td>{{ job.score }}</td>
+                            <td>{{ job.company }}</td>
+                            <td><a href="{{ job.url }}">{{ job.title }}</a></td>
+                            <td>{{ job.location }}</td>
+                            <td>{{ job.snippet }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <p>No jobs are available.</p>
         {% endif %}

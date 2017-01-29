@@ -47,11 +47,9 @@ class JobsProvider(object):
                 jobtitle = result.find({'jobtitle'}).getText()
                 company = result.find({'company'}).getText()
                 location = result.find({'formattedlocation'}).getText()
-                # city = result.find({'city'}).getText()
-                # state = result.find({'state'}).getText()
                 date_text = result.find({'date'}).getText()
                 date_posted = datetime.strptime(date_text, '%a, %d %b %Y %H:%M:%S %Z')
-                # snippet = result.find({'snippet'}).getText()
+                snippet = result.find({'snippet'}).getText()
                 joburl = result.find({'url'}).getText()
 
                 try:
@@ -74,5 +72,6 @@ class JobsProvider(object):
                             description=description,
                             url=joburl,
                             sponsored=sponsored,
-                            expired=expired)
+                            expired=expired,
+                            snippet=snippet)
                     j.save()
