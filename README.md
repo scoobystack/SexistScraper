@@ -11,8 +11,10 @@ create database scraper owner scraper;
 \q      #quit psql 
 ```
 
-### Activate virtualenv and install deps
-- In project root activate virtual environment   
+### Creae and activate virtualenv and install deps
+- In project root create virtual environment
+```virtualenv venv```
+- Activate virtual environment   
 ```. venv/bin/active```
 - Install versioned dependencies from requirements.txt  
 ```pip install -r requirements.txt```
