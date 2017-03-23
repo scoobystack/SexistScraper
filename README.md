@@ -11,14 +11,21 @@ create database scraper owner scraper;
 \q      #quit psql 
 ```
 
-### Creae and activate virtualenv and install deps
+### Install helpers
+- Install [homebrew](https://brew.sh/)
+- Install pip
+```brew install pip```
+- Install virtualenv
+```pip install virtualenv```
+
+### Create and activate virtualenv and install deps
 - In project root create virtual environment
-```virtualenv venv```
-- Activate virtual environment   
-```. venv/bin/active```
-- Install versioned dependencies from requirements.txt  
-```pip install -r requirements.txt```
-- Migrate db to latest schema   
-```python manage.py migrate```
-- Start the server  
-```python manage.py runserver```
+  - ```virtualenv venv```
+- Activate virtual environment
+  - ```. venv/bin/active```
+- Install versioned dependencies from requirements.txt
+  - ```pip install -r requirements.txt```
+- Migrate db to latest schema
+  - ```python manage.py migrate```
+- Start the server
+  - ```python manage.py runserver```
