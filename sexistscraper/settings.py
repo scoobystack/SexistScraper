@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels'
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,19 @@ DATABASES = {
         'PASSWORD': 'scraper',
         'HOST': '127.0.0.1',
         'PORT': '5432',
+    }
+}
+
+# Websockets
+# https://realpython.com/blog/python/getting-started-with-django-channels/
+# Start Redis with 'redis-server'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('localhost', 6379)],
+        },
+        'ROUTING': 'core.routing.channel_routing',
     }
 }
 

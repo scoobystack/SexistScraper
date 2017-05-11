@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from datetime import datetime
+from django.conf import settings
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 import uuid
@@ -24,3 +25,8 @@ class Job(models.Model):
     def __str__(self):
         return 'company: ' + self.company + ', title: ' + self.title + ', posted: ' + \
         self.date_posted.strftime("%B %d, %Y") + ', query: ' + query
+
+
+class LoggedInUser(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, related_name='logged_in_user')
