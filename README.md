@@ -2,6 +2,10 @@
 
 ### Setup postgres db
 - Install postgres. Follow instructions here: [Postgress App](https://postgresapp.com/)
+  - Be sure to add the PostgressApp bin dir to your PATH in your bash profile
+```
+export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH"
+```
 - Start postgres by launching Postgres in Applications folder
 - Create scraper user and db
 ```
@@ -18,7 +22,7 @@ create database scraper owner scraper;
 - Install virtualenv
 ```pip install virtualenv```
 
-### Create and activate virtualenv and install deps
+### Create and activate virtualenv and install dependencies
 - In project root create virtual environment
   - ```virtualenv venv```
 - Activate virtual environment
